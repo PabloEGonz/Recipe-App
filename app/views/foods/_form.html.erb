@@ -2,7 +2,6 @@
   <% if food.errors.any? %>
     <div class="alert alert-danger">
       <h2><%= pluralize(food.errors.count, "error") %> prohibited this food from being saved:</h2>
-
       <ul>
         <% food.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -10,30 +9,25 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="mb-3">
-    <%= form.label :name, class: 'form-label' %>
-    <%= form.text_field :name, class: 'form-control', required: true %>
-  </div>
-
-  <div class="mb-3">
-    <%= form.label :measurement_unit, class: 'form-label' %>
-    <%= form.select :measurement_unit, %w[g kg ml l oz lb], {}, class: 'form-select', required: true %>
-  </div>
-
-  <div class="mb-3">
-    <%= form.label :price, class: 'form-label' %>
-    <%= form.text_field :price, class: 'form-control', required: true %>
-  </div>
-
-  <div class="mb-3">
-    <%= form.label :quantity, class: 'form-label' %>
-    <%= form.number_field :quantity, class: 'form-control', required: true %>
-  </div>
-
-  <%= form.hidden_field :user_id, value: current_user.id %>
-
-  <div class="mb-3">
-    <%= form.submit 'Create Food', class: 'btn btn-primary' %>
+  <div class="row g-3">
+    <div class="col-md-6 mb-3">
+      <%= form.label :name, class: 'form-label' %>
+      <%= form.text_field :name, class: 'form-control', required: true %>
+    </div>
+    <div class="col-md-2 mb-3">
+      <%= form.label :measurement_unit, class: 'form-label' %>
+      <%= form.select :measurement_unit, [["grams", "g"], ["kilograms", "kg"], ["milliliters", "ml"], ["liters", "l"], ["ounces", "oz"], ["pounds", "lb"], ["cups", "c"], ["teaspoons", "tsp"], ["units", "U"]], {}, class: 'form-select', required: true %>
+    </div>
+    <div class="col-md-2 mb-3">
+      <%= form.label :price, class: 'form-label' %><i class="form-text">(In USD)</i>
+      <%= form.text_field :price, class: 'form-control', placeholder: '$', required: true %>
+    </div>
+    <div class="col-md-2 mb-3">
+      <%= form.label :quantity, class: 'form-label' %>
+      <%= form.number_field :quantity, class: 'form-control', required: true %>
+    </div>
+    <div class="mb-3">
+      <%= form.submit 'Create Food', class: 'btn btn-primary' %>
+    </div>
   </div>
 <% end %>

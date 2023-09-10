@@ -2,9 +2,6 @@
   <% if user_signed_in? %>
     <div class="display-6"> Welcome <%= current_user.email %>! </div>
     <div class="row g-3 mt-4">
-      <div class="col-md-10 text-center my-5">
-        <%= link_to 'Create new post', class:'btn btn-primary' %>
-      </div>
       <div class="col-md-4 mt-4">
         <%= button_to "Sign out", destroy_user_session_path, method: :delete, class:'btn btn-danger' %>
       </div>

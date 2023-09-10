@@ -20,7 +20,7 @@ class FoodsController < ApplicationController
     @food.assign_attributes(food_params)
     if @food.save
       redirect_to foods_path
-      flash[:success] =  'Food was successfully created!'
+      flash[:success] = 'Food was successfully created!'
     else
       flash.now[:error] = 'Could not create food, try again'
       render :new, status: :unprocessable_entity
@@ -29,7 +29,7 @@ class FoodsController < ApplicationController
 
   def update
     if @food.update(food_params)
-      flash[:success] =  "Measurement unit received: #{params[:food]}"
+      flash[:success] = "Measurement unit received: #{params[:food]}"
       redirect_to food_url(@food), notice: 'Food was successfully updated.'
     else
       render :edit, status: :unprocessable_entity
@@ -40,7 +40,7 @@ class FoodsController < ApplicationController
   def destroy
     if @food.destroy
       flash[:success] = 'Food was successfully deleted.'
-    else 
+    else
       flash[:error] = 'Could not delete food, try again'
     end
     redirect_to foods_url

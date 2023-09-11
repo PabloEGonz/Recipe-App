@@ -1,0 +1,14 @@
+<div class='my-5 pt-5'>
+  <h2 class='text-center'>Create new inventory</h2>
+  <%= form_with model: @new_inventory, url: inventories_path, method: :post, local: true, scope: :inventory do |f| %>
+    <div class="row g-3">
+      <div class="col-md-6 mb-3">
+        <%= f.label :name, class: "form-label" %>
+        <%= f.text_field :name, class: "form-control" %>
+      </div>
+      <div class="text-center">
+        <%= f.submit 'Post inventory', class:"btn btn-primary mb-3" %>
+      </div>
+    </div>
+  <% end %>
+</div>

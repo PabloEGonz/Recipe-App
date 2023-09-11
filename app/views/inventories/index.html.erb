@@ -1,0 +1,6 @@
+<% @inventories.each do |inventory| %>
+  <%= render 'inventory', inventory: inventory %>
+<%end%>
+<div class="text-center mt-5">
+  <%= link_to "Add a new inventory", new_inventory_path, class:'btn btn-primary' %>
+</div>

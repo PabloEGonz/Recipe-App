@@ -1,0 +1,15 @@
+<div class="card mx-auto my-3">
+  <%= link_to inventory_path(inventory), class: "custom-link" do %>
+    <div class="card-body row">
+      <div class="text-center my-2 col-3">
+        <h5 class="card-title"><%= inventory.name%> </h5>
+        <%= render 'shared/delete_inventory', inventory: inventory %>
+      </div>
+      <p class="card-text col-9">The foods in inventory are: 
+        <% inventory.foods.each do |food|%>
+          <%= food %>
+        <%end%>
+      </p>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,3 @@
+<% if can? :manage, recipe %>
+  <%= button_to "Delete inventory", inventory_path(inventory), method: :delete, class:'btn btn-sm btn-outline-danger mt-4' %>
+<% end %>
